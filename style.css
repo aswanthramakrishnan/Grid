@@ -1,0 +1,230 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+body{
+    font-family: 'Open Sans', sans-serif;
+    /* paragraphinte font size ane eppoyum update cheythe kodukkunathe bodykke */
+    font-size: 16px;
+    line-height: 28px;
+    color: black;
+}
+/* globel ayitte anchor tagine text decoration use cheyyunnu */
+a{
+    text-decoration: none;
+}
+.container{
+    width: 100%;
+    /* row kodutha fr correct ayitte place ayitte illa athine nammal height kodukkanam */
+    height: 100vh;
+    /* vh view port height top to bottom size */
+    margin:0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.2fr;
+    grid-template-rows: 1fr 4fr 1.2fr 1.2fr;
+    grid-template-areas: "logo  logo  header"
+                          "main main  imgbox"
+                          "quotes quotes  imgbox"
+                          "btn1   btn2    imgbox";
+/* ivide column and row use cheyyande nammukke easy ayi grid template use cheyyam */
+}
+
+.logo{
+    /* ithe ellam nammake simple ayitte ezhutham such as */
+    grid-row: logo;
+    /* ivide grid rowil start 1,end 2 */
+    grid-column:1 / 3;
+    background-color: rgb(179, 237, 241);
+    display: flex;
+    align-items: center;
+    padding-left: 125px;
+}
+.logo a{
+    color: rgb(111, 175, 111);
+    font-size: 24px;
+    font-weight: 700;
+   
+}
+.main{
+    /* eniyum line cheruthakkam by using grid area */
+    /* grid-area:first row num/first column num/second row num/second column number; */
+    grid-area: main;
+    background-color: rgb(252, 250, 250);
+    padding: 0 125px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+
+}
+.main h1{
+    font-size: 36px;
+    line-height: 49px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    max-width: 290px;
+
+}
+
+/* main element animation */
+.pop-in{
+    animation: popin 2s ease-in 3s forwards;
+}
+
+@keyframes popin{
+    from{
+        opacity: 0;
+        transform: translateX(-100px) scale(0.8);
+    }
+    to{
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+
+.quotes{
+  grid-area: quotes;
+    background-color: rgb(223, 211, 211);
+
+}
+.quotes h2{
+    font-size: 24px;
+   line-height: 33px;
+   font-weight: 700;
+   padding-left: 125px;
+   display: flex;
+   align-items: center;
+
+}
+.btn a{
+    color:white;
+    font-size: 24px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items:center ;
+    justify-content: center;
+}
+.btn1{
+    grid-area: btn1;
+    background-color: rgb(33, 78, 33);
+}
+.btn2{
+   grid-area: btn2;
+    background-color: rgb(118, 235, 118);
+
+}
+.btn{
+    transition: background-color .2s ease-in-out;
+}
+/* button hover effect */
+.btn:hover{
+    background-color: gray;
+}
+
+header{
+    grid-area: header;
+    background-color: rgb(247, 247, 247);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 30px;
+}
+header ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+   
+    
+    
+}
+header ul li a{
+    padding: 30px 15px;
+    color: rgb(12, 14, 14);
+    font-weight: bold;
+    transition: color .2s ease-in;
+    /* anchor tagine alle hover cheythe athe konde athine vanne transition kodukkuva */
+    
+}
+/* Header hover effect */
+header ul li:hover a{
+    color: green;
+  
+}
+
+
+
+.img-box{
+  grid-area: imgbox;
+    background-color:  gray;
+    overflow: hidden;
+    /* overflow hidden koduthale full ayi ninolum */
+
+}
+.img-box img{
+    width: 100%;
+    height: 100%;
+    /* 100%  koduthal divil full ninnolum */
+}
+
+
+/* Media query starts here */
+
+@media(max-width:765px){
+     
+    /*  responsive akkumbol rande colum akki mattunnu ennale nammake mobile design akki mattunne*/
+   
+    .container{
+        /* 100vp nammukke alla rowsinayum kanikkane sadikkilla athukone height auto akkunnu  */
+        height: auto;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "logo logo"
+                             "header  header"
+                             "imgbox imgbox"
+                             "main     main"
+                             "quotes  quotes"
+                             "btn1     btn2";
+
+                             grid-template-rows: 100px 50px 50vh auto auto 70px;
+                             /* oro row height ane paraje koduthathe */
+    }
+
+.logo{
+    padding-left: 0;
+    justify-content: center;
+}
+.main{
+    padding: 50px 24px;
+}
+.main h1{
+    font-size: 24px;
+    line-height: 40px;
+    margin-bottom: 12px;
+}
+
+.quotes{
+    padding: 20px 24px;
+}
+.quotes h2{
+padding: 0;
+font-size: 23px;
+line-height: 30px;
+}
+header{
+    padding-right: 0;
+    background-color: #cddcda;
+    justify-content: center;
+    
+}
+.btn a{
+    font-size: 19px;
+}
+
+
+}
+
